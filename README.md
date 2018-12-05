@@ -14,8 +14,8 @@ Will result in:
    "lon":"-9.7957984",
    "temp":9.78,
    "location":"Killorglin",
-   "humidity":"",
-   "created_at":"2018-12-05T21:28:38.534068Z"
+   "humidity":94,
+   "created_at":"2018-12-05T21:39:04.769538Z"
 }
 ```
 

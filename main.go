@@ -33,7 +33,7 @@ func GetWeather(w http.ResponseWriter, r *http.Request) {
 		v,_ := jason.NewObjectFromReader(response.Body)
 		name,_ := v.GetString("name")
 		temp,_ := v.GetFloat64("main", "temp")
-		hum,_ := v.GetString("main", "humidity")
+		hum,_ := v.GetFloat64("main", "humidity")
 		weather := entity.Weather{lat,lon,temp,name,hum,time.Now()}
 		json.NewEncoder(w).Encode(weather)
 

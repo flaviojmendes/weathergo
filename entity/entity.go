@@ -7,6 +7,6 @@ type Weather struct {
 	Lon                 string    	`json:"lon" bson:"lon`
 	Temp				float64	  	`json:"temp",bson:"temp""`
 	Location			string		`json:"location",bson:"location"`
-	Humidity			string		`json:"humidity",bson:"humidity"`
+	Humidity			float64		`json:"humidity",bson:"humidity"`
 	RetrievedAt         time.Time  	`json:"created_at" bson:"created_at"`
 }
