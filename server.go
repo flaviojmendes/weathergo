@@ -1,20 +1,22 @@
 package main
 
 import (
-	"encoding/json"
 	"github.com/flaviojmendes/weathergo/service"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 )
 
 func Server() {
-	router := mux.NewRouter()
-	router.HandleFunc("/health", HealthCheck).Methods("GET")
-	router.HandleFunc("/weather/{lat}/{lon}", service.GetWeather).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	router := gin.Default()
+
+	router.GET("/health", HealthCheck)
+	router.GET("/weather/:lat/:lon", service.GetWeather)
+	router.Run(":8000")
+
+	log.Print("Server Started on port 8000")
 }
 
-func HealthCheck(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("I'm Alive!")
+func HealthCheck(c *gin.Context) {
+	c.JSON(http.StatusOK,"I'm Alive!")
 }

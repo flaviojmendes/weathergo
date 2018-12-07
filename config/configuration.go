@@ -9,7 +9,7 @@ type Configuration struct {
 
 func GetConfig() Configuration{
 	configuration := Configuration{}
-	err := gonfig.GetConf("config.json", &configuration)
+	err := gonfig.GetConf("config/config.json", &configuration)
 	if err != nil {
 		panic(err)
 	}
