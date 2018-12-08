@@ -7,8 +7,10 @@ import (
 )
 
 type Configuration struct {
-	Port              string
-	OpenWeatherKeys []string
+	Port              	string
+	CacheExp			int64
+	CachePurge			int64
+	OpenWeatherKeys 	[]string
 }
 
 func GetConfig() *Configuration{
