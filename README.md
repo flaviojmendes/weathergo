@@ -9,6 +9,8 @@ It is required to have an _ENV Variable_ named **CONFIG_PATH**
 
 ```
 Port: :8000       # the port you want
+CacheExp: 5       # time in minutes to the cache expiration
+CachePurge: 10    # time in minutes to the purge of expired cached weathers
 OpenWeatherKeys:  # any number of keys you want
   - key1
   - key2
