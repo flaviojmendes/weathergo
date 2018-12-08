@@ -1,32 +1,34 @@
 package service
 
 import (
+	"errors"
 	"fmt"
-	"github.com/antonholmquist/jason"
-	"github.com/flaviojmendes/weathergo/config"
 	"github.com/flaviojmendes/weathergo/entity"
 	"github.com/gin-gonic/gin"
-	"math/rand"
 	"net/http"
-	"time"
 )
 
 func GetWeather(c *gin.Context) {
 	lat := c.Param("lat")
 	lon := c.Param("lon")
+	provider := c.Param("provider")
 
-	fmt.Println("Retrieving Weather for Latitude: ", lat ," - Longitude", lon)
+	fmt.Println("Retrieving Weather for Latitude: ", lat ," - Longitude", lon, " - Provider: ", provider)
 
-	key := config.GetConfig().OpenWeatherKeys[rand.Intn(len(config.GetConfig().OpenWeatherKeys))]
-	response, err := http.Get("http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + key)
+	var response entity.Weather
+	var err error
+
+	switch provider {
+	case "OPENWEATHER":
+		response, err = getCurrentWeatherOpenWeather(lat,lon)
+	default:
+		err = errors.New("unfortunately we are just supporting OPENWEATHER provider")
+	}
+
+
 	if err != nil {
-		fmt.Printf("The HTTP request failed with error %s\n", err)
+		c.AbortWithError(http.StatusInternalServerError,err)
 	} else {
-		v,_ := jason.NewObjectFromReader(response.Body)
-		name,_ := v.GetString("name")
-		temp,_ := v.GetFloat64("main", "temp")
-		hum,_ := v.GetFloat64("main", "humidity")
-		weather := entity.Weather{lat,lon,temp,name,hum,time.Now()}
-		c.JSON(http.StatusOK, weather)
+		c.JSON(http.StatusOK, response)
 	}
 }

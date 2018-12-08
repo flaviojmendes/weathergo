@@ -12,7 +12,7 @@ func Server(configuration *config.Configuration) {
 	router := gin.Default()
 
 	router.GET("/health", HealthCheck)
-	router.GET("/weather/:lat/:lon", service.GetWeather)
+	router.GET("/weather/:lat/:lon/:provider", service.GetWeather)
 	router.Run(configuration.Port)
 
 	log.Print("Server Started on port 8000")

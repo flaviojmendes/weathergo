@@ -22,11 +22,11 @@ _You can find an example of this file [here](config_sample.yml)._
  
 To Get the weather you should do a GET Request to:
 
-`HTTP GET http://localhost:8000/weather/{latitude}/{longitude}`
+`HTTP GET http://localhost:8000/weather/{latitude}/{longitude}/{provider}`
 
 #### Example
 
-`HTTP GET http://localhost:8000/weather/52.1044634/-9.7957984`
+`HTTP GET http://localhost:8000/weather/52.1044634/-9.7957984/OPENWEATHER`
 
 Will result in:
 
