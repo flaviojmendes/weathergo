@@ -1,18 +1,31 @@
 package config
 
-import "github.com/tkanos/gonfig"
+import (
+	"github.com/tkanos/gonfig"
+	"log"
+	"os"
+)
 
 type Configuration struct {
-	Port              int
+	Port              string
 	OpenWeatherKeys []string
 }
 
-func GetConfig() Configuration{
+func GetConfig() *Configuration{
+	configFile := os.Getenv("CONFIG_FILE")
+	verifyFile(configFile)
+
 	configuration := Configuration{}
-	err := gonfig.GetConf("config/config.json", &configuration)
-	if err != nil {
-		panic(err)
-	}
-	return configuration
+	gonfig.GetConf(configFile, &configuration)
+
+	return &configuration
 }
+
+
+func verifyFile(path string) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		log.Panicf("The file %v doesn't exist.", path)
+	}
+}
+
 

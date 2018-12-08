@@ -1,5 +1,9 @@
 package main
 
+import config "github.com/flaviojmendes/weathergo/config"
+
 func main() {
-	Server()
+	configuration := config.GetConfig()
+
+	Server(configuration)
 }
