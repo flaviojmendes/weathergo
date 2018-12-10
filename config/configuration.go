@@ -14,15 +14,16 @@ type Configuration struct {
 }
 
 func GetConfig() *Configuration{
-	configFile := os.Getenv("CONFIG_FILE")
-	verifyFile(configFile)
-
-	configuration := Configuration{}
-	gonfig.GetConf(configFile, &configuration)
-
-	return &configuration
+	configFilePath := os.Getenv("CONFIG_FILE")
+	verifyFile(configFilePath)
+	return readConfigFile(configFilePath)
 }
 
+func readConfigFile(path string) *Configuration {
+	configuration := Configuration{}
+	gonfig.GetConf(path, &configuration)
+	return &configuration
+}
 
 func verifyFile(path string) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {

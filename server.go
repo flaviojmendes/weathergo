@@ -11,7 +11,6 @@ import (
 
 func Server(configuration *config.Configuration, ch *cache.Cache) {
 	router := gin.Default()
-
 	router.GET("/health", HealthCheck)
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {service.GetWeather(c, ch)})
 	router.Run(configuration.Port)
