@@ -12,7 +12,7 @@ import (
 func Server(configuration *config.Configuration, ch *cache.Cache) {
 	router := getRouter()
 	router.GET("/health", HealthCheck)
-	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {service.GetWeather(c, ch)})
+	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {service.GetWeather(c, ch, configuration)})
 	router.Run(configuration.Port)
 
 	log.Print("Server Started on port 8000")

@@ -3,6 +3,7 @@ package service
 import (
 	"errors"
 	"fmt"
+	"github.com/flaviojmendes/weathergo/config"
 	"github.com/flaviojmendes/weathergo/entity"
 	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
@@ -10,7 +11,7 @@ import (
 	"strings"
 )
 
-func GetWeather(c *gin.Context, ch *cache.Cache) {
+func GetWeather(c *gin.Context, ch *cache.Cache, config *config.Configuration) {
 	lat := c.Param("lat")
 	lon := c.Param("lon")
 	provider := c.Param("provider")
@@ -31,7 +32,7 @@ func GetWeather(c *gin.Context, ch *cache.Cache) {
 
 	switch provider {
 	case "OPENWEATHER":
-		response, err = getCurrentWeatherOpenWeather(lat,lon)
+		response, err = getCurrentWeatherOpenWeather(config, lat,lon)
 		ch.Set(cacheKey, &response, cache.DefaultExpiration)
 	default:
 		err = errors.New("unfortunately we are just supporting OPENWEATHER provider")

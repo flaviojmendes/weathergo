@@ -10,8 +10,8 @@ import (
 	"time"
 )
 
-func getCurrentWeatherOpenWeather(lat string, lon string) (entity.Weather, error) {
-	key := config.GetConfig().OpenWeatherKeys[rand.Intn(len(config.GetConfig().OpenWeatherKeys))]
+func getCurrentWeatherOpenWeather(config *config.Configuration, lat string, lon string) (entity.Weather, error) {
+	key := config.OpenWeatherKeys[rand.Intn(len(config.OpenWeatherKeys))]
 
 	response, err := http.Get("http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + key)
 
