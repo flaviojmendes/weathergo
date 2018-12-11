@@ -15,11 +15,12 @@ type Configuration struct {
 
 func GetConfig() *Configuration{
 	configFilePath := os.Getenv("CONFIG_FILE")
-	verifyFile(configFilePath)
+
 	return readConfigFile(configFilePath)
 }
 
 func readConfigFile(path string) *Configuration {
+	verifyFile(path)
 	configuration := Configuration{}
 	gonfig.GetConf(path, &configuration)
 	return &configuration

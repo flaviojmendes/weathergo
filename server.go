@@ -10,12 +10,16 @@ import (
 )
 
 func Server(configuration *config.Configuration, ch *cache.Cache) {
-	router := gin.Default()
+	router := getRouter()
 	router.GET("/health", HealthCheck)
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {service.GetWeather(c, ch)})
 	router.Run(configuration.Port)
 
 	log.Print("Server Started on port 8000")
+}
+
+func getRouter() *gin.Engine{
+	return gin.Default()
 }
 
 func HealthCheck(c *gin.Context) {
