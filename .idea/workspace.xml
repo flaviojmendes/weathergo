@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219535b6-965d-4e5d-80ee-b448af0d112f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/openweather_provider_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/configuration.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/openweather_provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/openweather_provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/weather_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/weather_service.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,18 +12,18 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/weathergo$TestGetWeather_in_github_com_flaviojmendes_weathergo_service.out" NAME="TestGetWeather in github.com/flaviojmendes/weathergo/service Coverage Results" MODIFIED="1544546244294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/weathergo$go_test_weathergo.out" NAME="go test weathergo Coverage Results" MODIFIED="1544548162893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/weathergo$TestWeatherResource_in_github_com_flaviojmendes_weathergo.out" NAME="TestWeatherResource in github.com/flaviojmendes/weathergo Coverage Results" MODIFIED="1544547773920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/weathergo$go_test_weathergo.out" NAME="go test weathergo Coverage Results" MODIFIED="1544556290385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="431" />
+    <option name="myElementSize" value="364" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="165">
               <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding>
                 <element signature="e#14#117#0" expanded="true" />
@@ -41,17 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/weather_service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../gin-gonic/gin/context.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="302" column="23" selection-start-line="302" selection-start-column="23" selection-end-line="302" selection-end-column="23" />
+            <state relative-caret-position="360">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -59,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../gin-gonic/gin/tree.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="150">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -69,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/service/openweather_provider.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="48" />
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="48" />
               <folding>
                 <element signature="e#17#192#0" expanded="true" />
               </folding>
@@ -80,11 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/openweather_provider_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-              <folding>
-                <element signature="e#17#82#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -92,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="345">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -101,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="105">
               <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
             </state>
           </provider>
@@ -110,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/configuration_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="270">
               <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
             </state>
           </provider>
@@ -119,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config_sample.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state relative-caret-position="60">
               <caret line="4" column="36" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="36" />
             </state>
           </provider>
@@ -166,8 +148,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1680" />
-    <option name="y" value="107" />
+    <option name="x" value="20" />
+    <option name="y" value="62" />
     <option name="width" value="1670" />
     <option name="height" value="730" />
   </component>
@@ -238,7 +220,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestWeatherResource in github.com/flaviojmendes/weathergo">
+  <component name="RunManager" selected="Go Test.go test weathergo">
     <configuration name="go build github.com/flaviojmendes/weathergo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="weathergo" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -302,8 +284,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestWeatherResource in github.com/flaviojmendes/weathergo" />
         <item itemvalue="Go Test.go test weathergo" />
+        <item itemvalue="Go Test.TestWeatherResource in github.com/flaviojmendes/weathergo" />
         <item itemvalue="Go Test.TestGetWeather in github.com/flaviojmendes/weathergo/service" />
         <item itemvalue="Go Build.go build github.com/flaviojmendes/weathergo" />
         <item itemvalue="Go Test.configuration_test.go" />
@@ -311,21 +293,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestGetWeather_in_github_com_flaviojmendes_weathergo_service - 2018.12.11 at 16h 37m 24s.xml">
-      <configuration name="TestGetWeather in github.com/flaviojmendes/weathergo/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_weathergo - 2018.12.11 at 16h 37m 33s.xml">
-      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_weathergo - 2018.12.11 at 16h 38m 23s.xml">
-      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_weathergo - 2018.12.11 at 17h 01m 35s.xml">
-      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_weathergo - 2018.12.11 at 17h 01m 40s.xml">
-      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="TestWeatherResource_in_github_com_flaviojmendes_weathergo - 2018.12.11 at 17h 02m 06s.xml">
       <configuration name="TestWeatherResource in github.com/flaviojmendes/weathergo" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -341,6 +308,21 @@
     <history-entry file="go_test_weathergo - 2018.12.11 at 17h 03m 03s.xml">
       <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="go_test_weathergo - 2018.12.11 at 19h 20m 08s.xml">
+      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestWeatherResource_in_github_com_flaviojmendes_weathergo - 2018.12.11 at 19h 23m 09s.xml">
+      <configuration name="TestWeatherResource in github.com/flaviojmendes/weathergo" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestWeatherResource_in_github_com_flaviojmendes_weathergo - 2018.12.11 at 19h 24m 05s.xml">
+      <configuration name="TestWeatherResource in github.com/flaviojmendes/weathergo" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestWeatherResource_in_github_com_flaviojmendes_weathergo - 2018.12.11 at 19h 24m 39s.xml">
+      <configuration name="TestWeatherResource in github.com/flaviojmendes/weathergo" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_weathergo - 2018.12.11 at 19h 24m 52s.xml">
+      <configuration name="go test weathergo" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,29 +334,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="25" width="1680" height="976" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="804" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25153" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29613733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959327" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499388" visible="true" weight="0.3270366" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39787486" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499388" weight="0.3258427" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3974719" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959327" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.499388" weight="0.3270366" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.499388" visible="true" weight="0.3258427" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.500612" side_tool="true" weight="0.3293979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.32925338" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.32904148" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
@@ -416,12 +397,17 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>v.</expression-string>
+        <expression-string>v.String()</expression-string>
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>v.String()</expression-string>
+        <expression-string>string(resp.Body)</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>v.</expression-string>
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -452,16 +438,6 @@
       </expression>
       <expression>
         <expression-string>jsonResult[lat]</expression-string>
-        <language-id>go</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>ioutil.ReadAll(response.Body)</expression-string>
-        <language-id>go</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>string(response.Body)</expression-string>
         <language-id>go</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -538,17 +514,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service/weather_service_test.go" />
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#14#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../gin-gonic/gin/tree.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/configuration_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="270">
           <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config_sample.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="60">
           <caret line="4" column="36" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/openweather_provider.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="48" />
+          <folding>
+            <element signature="e#17#192#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -559,71 +570,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../gin-gonic/gin/tree.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/weather_service_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="e#17#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="e#14#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/weather_service.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="360">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/openweather_provider_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="e#17#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/openweather_provider.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="48" />
-          <folding>
-            <element signature="e#17#192#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        <state relative-caret-position="345">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
         </state>
       </provider>
     </entry>

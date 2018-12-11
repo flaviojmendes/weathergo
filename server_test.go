@@ -42,8 +42,7 @@ func TestWeatherResource(t *testing.T) {
 		convey.So(resp.Code, convey.ShouldEqual, http.StatusOK)
 
 		v,_ := jason.NewObjectFromReader(resp.Body)
-
-		name,_ := v.GetString("name")
+		name,_ := v.GetString("location")
 
 		convey.So(name, convey.ShouldEqual, "Killorglin")
 	})
