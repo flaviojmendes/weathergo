@@ -5,16 +5,11 @@ import (
 	"fmt"
 	"github.com/flaviojmendes/weathergo/config"
 	"github.com/flaviojmendes/weathergo/entity"
-	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
-	"net/http"
 	"strings"
 )
 
-func GetWeather(c *gin.Context, ch *cache.Cache, config *config.Configuration) {
-	lat := c.Param("lat")
-	lon := c.Param("lon")
-	provider := c.Param("provider")
+func GetWeather(lat string, lon string, provider string, ch *cache.Cache, config *config.Configuration) (entity.Weather, error) {
 
 	var response entity.Weather
 	var err error
@@ -26,22 +21,17 @@ func GetWeather(c *gin.Context, ch *cache.Cache, config *config.Configuration) {
 
 	if found {
 		fmt.Println("Found in cache. Returning...")
-		c.JSON(http.StatusOK, cachedResponse)
-		return
+		response := cachedResponse.(entity.Weather)
+		return response,err
 	}
 
 	switch provider {
 	case "OPENWEATHER":
 		response, err = getCurrentWeatherOpenWeather(config, lat,lon)
-		ch.Set(cacheKey, &response, cache.DefaultExpiration)
+		ch.Set(cacheKey, response, cache.DefaultExpiration)
 	default:
 		err = errors.New("unfortunately we are just supporting OPENWEATHER provider")
 	}
 
-
-	if err != nil {
-		c.AbortWithError(http.StatusInternalServerError,err)
-	} else {
-		c.JSON(http.StatusOK, response)
-	}
+	return response,err
 }
