@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func TestGetWeather(t *testing.T) {
+func TestGetWeatherOPENWEATHER(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
@@ -23,7 +23,22 @@ func TestGetWeather(t *testing.T) {
 	})
 }
 
-func TestGetWeatherWithInvalidKey(t *testing.T) {
+func TestGetWeatherINVALIDPROVIDER(t *testing.T) {
+	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
+	configFile := &config.Configuration{
+		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
+	}
+
+	convey.Convey("get weather to 52.0984794,-9.7957126 in INVALIDPROVIDER should return an Error", t, func() {
+		weather,_ := GetWeather("52.0984794", "-9.7957126","OPENWEATHER",ch,configFile)
+		convey.So(weather.Location, convey.ShouldEqual, "Killorglin")
+
+		_,err := GetWeather("52.0984794", "-9.7957126","INVALIDPROVIDER",ch,configFile)
+		convey.So(err, convey.ShouldNotBeNil)
+	})
+}
+
+func TestGetWeatherOPENWEATHERWithInvalidKey(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7_invalid"},

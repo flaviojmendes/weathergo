@@ -11,6 +11,8 @@ type Configuration struct {
 	CacheExp			int64
 	CachePurge			int64
 	OpenWeatherKeys 	[]string
+	AuthKey				string
+	AuthSecret			string
 }
 
 func GetConfig() *Configuration{

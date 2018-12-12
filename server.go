@@ -5,12 +5,36 @@ import (
 	"github.com/flaviojmendes/weathergo/service"
 	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
+	"github.com/pjebs/restgate"
 	"log"
 	"net/http"
 )
 
 func Server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router := getRouter()
+
+	// Initialize Restgate
+	rg := restgate.New("X-Auth-Key", "X-Auth-Secret", restgate.Static, restgate.Config{
+		Key:                []string{configuration.AuthKey},
+		Secret:             []string{configuration.AuthSecret},
+		HTTPSProtectionOff: true,
+	})
+	// Create Gin middleware - integrate Restgate with Gin
+	rgAdapter := func(c *gin.Context) {
+		nextCalled := false
+		nextAdapter := func(http.ResponseWriter, *http.Request) {
+			nextCalled = true
+			c.Next()
+		}
+		rg.ServeHTTP(c.Writer, c.Request, nextAdapter)
+		if nextCalled == false {
+			c.AbortWithStatus(401)
+		}
+	}
+
+	// Use Restgate with Gin
+	router.Use(rgAdapter)
+
 	router.GET("/health", HealthCheck)
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 	router.Run(configuration.Port)
