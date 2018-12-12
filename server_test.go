@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/antonholmquist/jason"
 	"github.com/flaviojmendes/weathergo/config"
-	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
 	"github.com/smartystreets/goconvey/convey"
 	"net/http"
@@ -24,14 +23,12 @@ func TestUsersResource(t *testing.T) {
 }
 
 func TestWeatherResource(t *testing.T) {
-	router := getRouter()
-
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
 	}
 
-	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configFile)})
+	router := Server(configFile, ch)
 
 	convey.Convey("GET request to /weather/52.0984794/-9.7957126/OPENWEATHER should return Killorglin", t, func() {
 		req, _ := http.NewRequest("GET", "/weather/52.0984794/-9.7957126/OPENWEATHER", nil)
@@ -45,14 +42,12 @@ func TestWeatherResource(t *testing.T) {
 }
 
 func TestWeatherResourceWithInvalidKey(t *testing.T) {
-	router := getRouter()
-
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7_invalid"},
 	}
 
-	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configFile)})
+	router := Server(configFile, ch)
 
 	convey.Convey("GET request to /weather/52.0984794/-9.7957126/OPENWEATHER should return Killorglin", t, func() {
 		req, _ := http.NewRequest("GET", "/weather/52.0984794/-9.7957126/OPENWEATHER", nil)
@@ -61,3 +56,4 @@ func TestWeatherResourceWithInvalidKey(t *testing.T) {
 		convey.So(resp.Code, convey.ShouldEqual, http.StatusInternalServerError)
 	})
 }
+
