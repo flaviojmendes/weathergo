@@ -1,6 +1,6 @@
 ### Weather GO
 
-<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-87%25-brightgreen.svg?longCache=true&style=flat)</a>
+<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-89%25-brightgreen.svg?longCache=true&style=flat)</a>
 
 Simple App that returns the __Weather__ based on the _Latitude_ and _Longitude_.
 
@@ -28,12 +28,25 @@ _You can find an example of this file [here](config_sample.yml)._
  
 To Get the weather you should do a GET Request to:
 
-`HTTP GET http://localhost:8000/weather/{latitude}/{longitude}/{provider}`
+```
+HTTP GET http://localhost:8000/weather/{latitude}/{longitude}/{provider}
+
+HEADERS:
+X-Auth-Key: {your_key}
+X-Auth-Secret: {your_key}
+```
 
 
 #### Example
 
-`HTTP GET http://localhost:8000/weather/52.1044634/-9.7957984/OPENWEATHER`
+```
+HTTP GET http://localhost:8000/weather/52.1044634/-9.7957984/OPENWEATHER
+
+HEADERS:
+X-Auth-Key: k3y1
+X-Auth-Secret: s3cr3t
+
+```
 
 Will result in:
 

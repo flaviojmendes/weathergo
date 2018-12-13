@@ -11,14 +11,37 @@ import (
 	"time"
 )
 
-func TestUsersResource(t *testing.T) {
-	router := getRouter()
-	router.GET("/health", HealthCheck)
+func TestHealthCheck(t *testing.T) {
+	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
+	configFile := &config.Configuration{
+		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
+		AuthSecret: "test",
+		AuthKey: "test",
+	}
+	router := Server(configFile, ch)
 	convey.Convey("GET request to /health should return 200", t, func() {
 		req, _ := http.NewRequest("GET", "/health", nil)
+		req.Header.Add("X-Auth-Key", "test")
+		req.Header.Add("X-Auth-Secret", "test")
 		resp := httptest.NewRecorder()
 		router.ServeHTTP(resp, req)
 		convey.So(resp.Code, convey.ShouldEqual, http.StatusOK)
+	})
+}
+
+func TestHealthCheckWithoutAuth(t *testing.T) {
+	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
+	configFile := &config.Configuration{
+		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
+		AuthSecret: "test",
+		AuthKey: "test",
+	}
+	router := Server(configFile, ch)
+	convey.Convey("GET request to /health should return 401", t, func() {
+		req, _ := http.NewRequest("GET", "/health", nil)
+		resp := httptest.NewRecorder()
+		router.ServeHTTP(resp, req)
+		convey.So(resp.Code, convey.ShouldEqual, http.StatusUnauthorized)
 	})
 }
 
