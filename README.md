@@ -1,6 +1,7 @@
 ### Weather GO
 
 <a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-89%25-brightgreen.svg?longCache=true&style=flat)</a>
+[![Build Status](https://travis-ci.org/flaviojmendes/weathergo.svg?branch=master)](https://travis-ci.org/flaviojmendes/weathergo)
 
 Simple App that returns the __Weather__ based on the _Latitude_ and _Longitude_.
 
