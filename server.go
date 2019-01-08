@@ -36,7 +36,7 @@ func Server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router.Use(rgAdapter)
 
 	router.GET("/health", HealthCheck)
-	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
+	router.GET("/wea	ther/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 	router.Run(configuration.Port)
 	log.Print("Server Started on port 8000")
 	return router

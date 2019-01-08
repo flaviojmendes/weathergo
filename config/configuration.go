@@ -17,6 +17,7 @@ type Configuration struct {
 
 func GetConfig() *Configuration{
 	configFilePath := os.Getenv("CONFIG_FILE")
+	log.Printf("Getting config file from %s",configFilePath)
 	return readConfigFile(configFilePath)
 }
 

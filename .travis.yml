@@ -5,9 +5,17 @@ env:
   global:
     - GOARCH=amd64
     - GO_FOR_RELEASE=1.11
-    - IMAGE_NAME=flaviojmendes/weathergo
+    - IMAGE_NAME=flaviojmendes/triangle-determiner
     - GO111MODULE=on
 install: true
+
+script:
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - "./deploy.sh"
+
 jobs:
   fast_finish: true
 notifications:
