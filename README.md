@@ -63,4 +63,8 @@ Will result in:
 }
 ```
 
-.
+### Getting from DockerHub
+
+```
+docker run -i -e CONFIG_FILE='/usr/local/config_sample.yml' -v {PATH_TO_YOUR_LOCAL_YML_CONFIG}:/usr/local/config_sample.yml flaviojmendes/weathergo
+```
