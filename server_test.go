@@ -18,30 +18,12 @@ func TestHealthCheck(t *testing.T) {
 		AuthSecret: "test",
 		AuthKey: "test",
 	}
-	router := Server(configFile, ch)
+	router := server(configFile, ch)
 	convey.Convey("GET request to /health should return 200", t, func() {
 		req, _ := http.NewRequest("GET", "/health", nil)
-		req.Header.Add("X-Auth-Key", "test")
-		req.Header.Add("X-Auth-Secret", "test")
 		resp := httptest.NewRecorder()
 		router.ServeHTTP(resp, req)
 		convey.So(resp.Code, convey.ShouldEqual, http.StatusOK)
-	})
-}
-
-func TestHealthCheckWithoutAuth(t *testing.T) {
-	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
-	configFile := &config.Configuration{
-		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
-		AuthSecret: "test",
-		AuthKey: "test",
-	}
-	router := Server(configFile, ch)
-	convey.Convey("GET request to /health should return 401", t, func() {
-		req, _ := http.NewRequest("GET", "/health", nil)
-		resp := httptest.NewRecorder()
-		router.ServeHTTP(resp, req)
-		convey.So(resp.Code, convey.ShouldEqual, http.StatusUnauthorized)
 	})
 }
 
@@ -53,7 +35,7 @@ func TestWeatherResource(t *testing.T) {
 		AuthKey: "test",
 	}
 
-	router := Server(configFile, ch)
+	router := server(configFile, ch)
 
 	convey.Convey("GET request to /weather/52.0984794/-9.7957126/OPENWEATHER should return Killorglin", t, func() {
 		req, _ := http.NewRequest("GET", "/weather/52.0984794/-9.7957126/OPENWEATHER", nil)
@@ -76,7 +58,7 @@ func TestWeatherResourceWithInvalidKey(t *testing.T) {
 		AuthKey: "test",
 	}
 
-	router := Server(configFile, ch)
+	router := server(configFile, ch)
 
 	convey.Convey("GET request to /weather/52.0984794/-9.7957126/OPENWEATHER should return Killorglin", t, func() {
 		req, _ := http.NewRequest("GET", "/weather/52.0984794/-9.7957126/OPENWEATHER", nil)

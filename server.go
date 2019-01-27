@@ -16,8 +16,11 @@ func server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router.GET("/health", HealthCheck)
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 
-	log.Fatal(autotls.Run(router, "fjm.me", "localhost"))
-
+	if gin.IsDebugging() {
+		router.Run(configuration.Port)
+	} else {
+		log.Fatal(autotls.Run(router, "fjm.me", "localhost"))
+	}
 	return router
 }
 
