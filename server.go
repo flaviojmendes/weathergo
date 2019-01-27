@@ -19,7 +19,7 @@ func server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	if gin.IsDebugging() {
 		router.Run(configuration.Port)
 	} else {
-		log.Fatal(autotls.Run(router, "fjm.me", "localhost"))
+		log.Fatal(autotls.Run(router, "fjm.me", "35.231.39.128"))
 	}
 	return router
 }
