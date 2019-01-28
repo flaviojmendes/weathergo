@@ -15,8 +15,10 @@ It is required to have an _ENV Variable_ named **CONFIG_PATH**
 Port: :8000       # the port you want
 CacheExp: 5       # time in minutes to the cache expiration
 CachePurge: 10    # time in minutes to the purge of expired cached weathers
-AuthKey: secretKey
-AuthSecret: secretSecret
+DbFile: path/to/your/weather.db
+WhiteListHosts:
+  - host1
+  - host2
 OpenWeatherKeys:  # any number of keys you want
   - key1
   - key2
@@ -33,9 +35,6 @@ To Get the weather you should do a GET Request to:
 ```
 HTTP GET http://localhost:8000/weather/{latitude}/{longitude}/{provider}
 
-HEADERS:
-X-Auth-Key: {your_key}
-X-Auth-Secret: {your_key}
 ```
 
 
@@ -43,10 +42,6 @@ X-Auth-Secret: {your_key}
 
 ```
 HTTP GET http://localhost:8000/weather/52.1044634/-9.7957984/OPENWEATHER
-
-HEADERS:
-X-Auth-Key: k3y1
-X-Auth-Secret: s3cr3t
 
 ```
 
@@ -66,5 +61,5 @@ Will result in:
 ### Getting from DockerHub
 
 ```
-docker run -i -e CONFIG_FILE='/usr/local/config_sample.yml' -v {PATH_TO_YOUR_LOCAL_YML_CONFIG}:/usr/local/config_sample.yml flaviojmendes/weathergo
+docker run -i -p 443:443 -e CONFIG_FILE='/usr/local/config_sample.yml' -v {PATH_TO_YOUR_LOCAL_YML_CONFIG}:/usr/local/config_sample.yml flaviojmendes/weather
 ```
