@@ -12,6 +12,7 @@ type Configuration struct {
 	CachePurge			int64
 	OpenWeatherKeys 	[]string
 	WhiteListHosts		[]string
+	DbFile				string
 }
 
 func GetConfig() *Configuration{
