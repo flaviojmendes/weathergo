@@ -7,12 +7,11 @@ import (
 )
 
 type Configuration struct {
-	Port              	string
+	DebugPort           string
 	CacheExp			int64
 	CachePurge			int64
 	OpenWeatherKeys 	[]string
-	AuthKey				string
-	AuthSecret			string
+	WhiteListHosts		[]string
 }
 
 func GetConfig() *Configuration{

@@ -15,8 +15,6 @@ func TestHealthCheck(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
-		AuthSecret: "test",
-		AuthKey: "test",
 	}
 	router := server(configFile, ch)
 	convey.Convey("GET request to /health should return 200", t, func() {
@@ -31,8 +29,6 @@ func TestWeatherResource(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
-		AuthSecret: "test",
-		AuthKey: "test",
 	}
 
 	router := server(configFile, ch)
@@ -54,8 +50,6 @@ func TestWeatherResourceWithInvalidKey(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
 		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7_invalid"},
-		AuthSecret: "test",
-		AuthKey: "test",
 	}
 
 	router := server(configFile, ch)

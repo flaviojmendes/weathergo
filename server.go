@@ -17,9 +17,9 @@ func server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 
 	if gin.IsDebugging() {
-		router.Run(configuration.Port)
+		router.Run(configuration.DebugPort)
 	} else {
-		log.Fatal(autotls.Run(router, "fjm.me", "weather.fjm.me"))
+		log.Fatal(autotls.Run(router, configuration.WhiteListHosts...))
 	}
 	return router
 }

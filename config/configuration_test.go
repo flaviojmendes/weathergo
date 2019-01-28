@@ -11,7 +11,7 @@ func TestGetConfig(t *testing.T) {
 		dir,_ := os.Getwd()
 		configuration := readConfigFile( dir+ "/../config_sample.yml")
 
-		convey.So(configuration.Port, convey.ShouldEqual, ":8000")
+		convey.So(configuration.DebugPort, convey.ShouldEqual, ":8000")
 	})
 }
 
