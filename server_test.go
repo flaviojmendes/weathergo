@@ -25,6 +25,21 @@ func TestHealthCheck(t *testing.T) {
 	})
 }
 
+
+func TestGetStats(t *testing.T) {
+	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
+	configFile := &config.Configuration{
+		OpenWeatherKeys: []string{"1455382c9be6c3db4fe8f894230202b7"},
+	}
+	router := server(configFile, ch)
+	convey.Convey("GET request to /stats should return 200", t, func() {
+		req, _ := http.NewRequest("GET", "/stats", nil)
+		resp := httptest.NewRecorder()
+		router.ServeHTTP(resp, req)
+		convey.So(resp.Code, convey.ShouldEqual, http.StatusOK)
+	})
+}
+
 func TestWeatherResource(t *testing.T) {
 	ch := cache.New(time.Duration(1)*time.Minute, time.Duration(1)*time.Minute)
 	configFile := &config.Configuration{
