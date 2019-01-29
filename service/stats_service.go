@@ -4,29 +4,34 @@ import (
 	"github.com/flaviojmendes/weathergo/config"
 	"github.com/recoilme/slowpoke"
 	"strconv"
+	"time"
 )
 
 func increaseRequestsCount(config *config.Configuration) {
+	//store
+	layout := "2006-01-02"
+	statsDate:= time.Now().UTC().Format(layout)
+	key := []byte(statsDate)
 
-	totalRequests := GetRequestsCount(config)
+	totalRequests := GetRequestsCount(config, statsDate)
 
 	totalRequests += 1
 
-	//store
 	file := config.DbFile
-	key := []byte("total_requests")
+
 
 	slowpoke.Set(file, key, []byte(strconv.Itoa(totalRequests)))
 }
 
-func GetRequestsCount(config *config.Configuration) int{
+func GetRequestsCount(config *config.Configuration, statsDate string) int{
 	// create database
 	file := config.DbFile
 	// close all opened database
 	defer slowpoke.CloseAll()
 
 	// init key
-	key := []byte("total_requests")
+	key := []byte(statsDate)
+
 
 	// get
 	res, err := slowpoke.Get(file, key)

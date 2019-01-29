@@ -14,7 +14,7 @@ func server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router := getRouter()
 
 	router.GET("/health", HealthCheck)
-	router.GET("/stats", func(c *gin.Context) {GetStats(c, configuration)})
+	router.GET("/stats/:date", func(c *gin.Context) {GetStats(c, configuration)})
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 
 	if gin.IsDebugging() {
@@ -38,7 +38,7 @@ func GetWeather(c *gin.Context, ch *cache.Cache, config *config.Configuration) {
 }
 
 func GetStats(c *gin.Context, config *config.Configuration) {
-	stats := service.GetRequestsCount(config)
+	stats := service.GetRequestsCount(config, c.Param("date"))
 	c.JSON(StatusOK, stats)
 }
 
