@@ -20,10 +20,10 @@ func increaseRequestsCount(config *config.Configuration) {
 	file := config.DbFile
 
 
-	slowpoke.Set(file, key, []byte(strconv.Itoa(totalRequests)))
+	slowpoke.Set(file, key, []byte(strconv.FormatInt(totalRequests, 10)))
 }
 
-func GetRequestsCount(config *config.Configuration, statsDate string) int{
+func GetRequestsCount(config *config.Configuration, statsDate string) int64{
 	// create database
 	file := config.DbFile
 	// close all opened database
@@ -39,7 +39,7 @@ func GetRequestsCount(config *config.Configuration, statsDate string) int{
 	if err != nil {
 		return 0
 	}
-	totalRequests,_ := strconv.Atoi(string(res))
+	totalRequests,_ := strconv.ParseInt(string(res), 10, 64)
 
 	return totalRequests
 }

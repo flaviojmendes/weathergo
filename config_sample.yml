@@ -1,7 +1,7 @@
 DebugPort: :8000
 CacheExp: 5
 CachePurge: 10
-DbFile: /home/flaviojmendes/weather.db
+DbFile: /Users/flaviojmendes/weather.db
 WhiteListHosts:
   - fjm.me
   - weather.fjm.me
