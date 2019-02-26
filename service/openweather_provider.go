@@ -23,6 +23,8 @@ func getCurrentWeatherOpenWeather(config *config.Configuration, lat string, lon 
 		weather.Humidity,err = v.GetFloat64("main", "humidity")
 		weather.Temp,err = v.GetFloat64("main", "temp")
 		weather.Location,err = v.GetString("name")
+		weather.Sunrise,err = v.GetInt64("sys", "sunrise")
+		weather.Sunset,err = v.GetInt64("sys", "sunset")
 		weather.Lat = lat
 		weather.Lon = lon
 		weather.RetrievedAt = time.Now()
