@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/autotls"
 	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
+	"github.com/semihalev/gin-stats"
 	"log"
 	. "net/http"
 )
@@ -13,8 +14,15 @@ import (
 func server(configuration *config.Configuration, ch *cache.Cache) *gin.Engine {
 	router := getRouter()
 
+
+	router.Use(stats.RequestStats())
+
+	router.GET("/stats", func(c *gin.Context) {
+		c.JSON(StatusOK, stats.Report())
+	})
+
+
 	router.GET("/health", HealthCheck)
-	router.GET("/stats/:date", func(c *gin.Context) {GetStats(c, configuration)})
 	router.GET("/weather/:lat/:lon/:provider", func(c *gin.Context) {GetWeather(c, ch, configuration)})
 
 	if gin.IsDebugging() {
@@ -35,11 +43,6 @@ func GetWeather(c *gin.Context, ch *cache.Cache, config *config.Configuration) {
 		c.AbortWithError(StatusInternalServerError, err)
 	}
 	c.JSON(StatusOK, weather)
-}
-
-func GetStats(c *gin.Context, config *config.Configuration) {
-	stats := service.GetRequestsCount(config, c.Param("date"))
-	c.JSON(StatusOK, stats)
 }
 
 func HealthCheck(c *gin.Context) {

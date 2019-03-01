@@ -33,7 +33,7 @@ func TestGetStats(t *testing.T) {
 	}
 	router := server(configFile, ch)
 	convey.Convey("GET request to /stats should return 200", t, func() {
-		req, _ := http.NewRequest("GET", "/stats/2019-01-01", nil)
+		req, _ := http.NewRequest("GET", "/stats", nil)
 		resp := httptest.NewRecorder()
 		router.ServeHTTP(resp, req)
 		convey.So(resp.Code, convey.ShouldEqual, http.StatusOK)

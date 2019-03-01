@@ -33,7 +33,5 @@ func GetWeather(lat string, lon string, provider string, ch *cache.Cache, config
 		err = errors.New("unfortunately we are just supporting OPENWEATHER provider")
 	}
 
-	increaseRequestsCount(config)
-
 	return response,err
 }
